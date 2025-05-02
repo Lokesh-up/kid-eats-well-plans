@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import MealPlansPage from "./pages/MealPlansPage";
 import RecipesPage from "./pages/RecipesPage";
 import TipsPage from "./pages/TipsPage";
+import TipDetailPage from "./pages/TipDetailPage";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="meal-plans" element={<MealPlansPage />} />
             <Route path="recipes" element={<RecipesPage />} />
             <Route path="tips" element={<TipsPage />} />
+            <Route path="tips/:tipId" element={<TipDetailPage />} />
             <Route path="about" element={<AboutPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
