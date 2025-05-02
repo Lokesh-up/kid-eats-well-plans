@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Corn, Egg, Zap } from 'lucide-react';
+import { Shield, Apple, Egg, Zap } from 'lucide-react';
 
 type MealType = {
   id: string;
@@ -189,13 +188,13 @@ const filterMealsByDietary = (meals: MealType[], filters: MealPlanProps['dietary
 const NutritionIcon = ({ type }: { type: string }) => {
   switch (type) {
     case 'protein':
-      return <Egg size={16} className="text-blue-600" title="High in Protein" />;
+      return <Egg size={16} className="text-blue-600" aria-label="High in Protein" />;
     case 'fiber':
-      return <Corn size={16} className="text-amber-600" title="Rich in Fiber" />;
+      return <Apple size={16} className="text-amber-600" aria-label="Rich in Fiber" />;
     case 'immunity':
-      return <Shield size={16} className="text-green-600" title="Boosts Immunity" />;
+      return <Shield size={16} className="text-green-600" aria-label="Boosts Immunity" />;
     case 'energy':
-      return <Zap size={16} className="text-yellow-600" title="Energy-packed" />;
+      return <Zap size={16} className="text-yellow-600" aria-label="Energy-packed" />;
     default:
       return null;
   }

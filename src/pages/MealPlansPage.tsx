@@ -5,7 +5,7 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent } from "@/components/ui/card";
-import { Download, Printer, Bookmark, Shield, Corn, Egg, Zap } from 'lucide-react';
+import { Download, Printer, Bookmark, Shield, Apple, Egg, Zap } from 'lucide-react';
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 import WeeklyMealPlan from '@/components/WeeklyMealPlan';
 import MealModal from '@/components/MealModal';

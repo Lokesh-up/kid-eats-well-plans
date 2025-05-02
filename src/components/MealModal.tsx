@@ -11,7 +11,7 @@ import {
 import { 
   Egg, 
   Clock, 
-  Corn, 
+  Apple, 
   Shield, 
   Zap 
 } from 'lucide-react';
@@ -151,7 +151,7 @@ const MealModal: React.FC<MealModalProps> = ({ mealId, onClose }) => {
       case 'protein':
         return <Egg className="text-blue-600" />;
       case 'fiber':
-        return <Corn className="text-amber-600" />;
+        return <Apple className="text-amber-600" />;
       case 'immunity':
         return <Shield className="text-green-600" />;
       case 'energy':
