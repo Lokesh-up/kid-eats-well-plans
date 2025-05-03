@@ -12,7 +12,7 @@ const QuickTipCard = ({ tip }: QuickTipCardProps) => {
     <Card className="border-none shadow-sm bg-white">
       <CardContent className="flex items-start p-4">
         <Star size={18} className="text-primary mr-2 mt-1 flex-shrink-0" />
-        <p className="text-sm text-gray-700">{tip}</p>
+        <p className="text-sm text-gray-700">{tip || "Quick tip for healthy eating with kids."}</p>
       </CardContent>
     </Card>
   );

@@ -32,7 +32,11 @@ const HeroSection = () => {
             <img 
               src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9" 
               alt="Healthy meal for kids" 
-              className="rounded-2xl shadow-lg max-w-full w-full md:max-w-lg animate-float" 
+              className="rounded-2xl shadow-lg max-w-full w-full md:max-w-lg"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = "https://images.unsplash.com/photo-1498050108023-c5249f4df085";
+              }}
             />
           </div>
         </div>

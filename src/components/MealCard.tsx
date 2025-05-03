@@ -21,7 +21,15 @@ const MealCard = ({ id, title, image, mealType, prepTime, tags, onClick }: MealC
       onClick={onClick}
     >
       <div className="relative">
-        <img src={image} alt={title} className="w-full h-48 object-cover" />
+        <img 
+          src={image || `https://images.unsplash.com/photo-${id || '1618160702438-9b02ab6515c9'}`}
+          alt={title} 
+          className="w-full h-48 object-cover"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.src = "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9";
+          }}
+        />
         <Badge className="absolute top-3 left-3 bg-primary">{mealType}</Badge>
       </div>
       <div className="p-4">
