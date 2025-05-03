@@ -15,6 +15,9 @@ interface MealCardProps {
 }
 
 const MealCard = ({ id, title, image, mealType, prepTime, tags, onClick }: MealCardProps) => {
+  // Use a more reliable fallback image URL
+  const fallbackImage = "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9";
+  
   return (
     <Card 
       className="overflow-hidden rounded-xl shadow-md border-none meal-card-hover transition-all duration-200 hover:shadow-lg"
@@ -22,12 +25,12 @@ const MealCard = ({ id, title, image, mealType, prepTime, tags, onClick }: MealC
     >
       <div className="relative">
         <img 
-          src={image || `https://images.unsplash.com/photo-${id || '1618160702438-9b02ab6515c9'}`}
+          src={image || fallbackImage}
           alt={title} 
           className="w-full h-48 object-cover"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
-            target.src = "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9";
+            target.src = fallbackImage;
           }}
         />
         <Badge className="absolute top-3 left-3 bg-primary">{mealType}</Badge>

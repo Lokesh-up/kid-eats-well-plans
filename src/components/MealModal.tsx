@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   Card, 
@@ -161,6 +160,9 @@ const MealModal: React.FC<MealModalProps> = ({ mealId, onClose }) => {
     }
   };
 
+  // Fallback image
+  const fallbackImage = '/placeholder.svg';
+
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={onClose}>
       <Card className="w-full max-w-3xl max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
@@ -187,6 +189,10 @@ const MealModal: React.FC<MealModalProps> = ({ mealId, onClose }) => {
                 src={recipe.image} 
                 alt={recipe.name} 
                 className="w-full h-48 object-cover rounded-md border"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = fallbackImage;
+                }}
               />
               {recipe.nutritionTags.length > 0 && (
                 <div className="mt-3">
