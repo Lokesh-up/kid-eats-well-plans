@@ -15,7 +15,7 @@ interface RecipeFiltersProps {
     difficulties: string[];
     tags: string[];
   };
-  toggleFilter: (category: keyof typeof activeFilters, value: string) => void;
+  toggleFilter: (category: keyof RecipeFiltersProps['activeFilters'], value: string) => void;
   clearFilters: () => void;
 }
 
