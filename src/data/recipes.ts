@@ -1,5 +1,5 @@
 
-// Mock recipe data for the application
+// Indian-style recipes for families with minimal ingredients
 export interface Recipe {
   id: string;
   title: string;
@@ -16,295 +16,317 @@ export interface Recipe {
   tags: string[];
   nutritionTags: string[];
   parentTips: string[];
+  videoUrl?: string; // YouTube or cooking video link
 }
 
 export const recipesData: Recipe[] = [
   {
-    id: 'mini-veggie-omelette',
-    title: 'Mini Veggie Omelette',
-    image: '/placeholder.svg',
+    id: 'dal-chawal',
+    title: 'Simple Dal Chawal',
+    image: 'src/assets/images/dal-chawal.jpg',
+    mealType: 'lunch',
+    ageGroups: ['1-3', '4-6', '7-10'],
+    prepTime: '5',
+    cookTime: '20',
+    difficulty: 'easy',
+    servings: 4,
+    ingredients: [
+      '1 cup rice',
+      '1/2 cup yellow dal (moong/arhar)',
+      '1 onion, chopped',
+      '2 tomatoes, chopped',
+      '1 tsp turmeric',
+      '1 tsp salt',
+      '2 tbsp oil',
+      '1 tsp cumin seeds'
+    ],
+    steps: [
+      'Wash and boil rice with 2 cups water.',
+      'In another pot, wash dal and boil with 1 cup water.',
+      'Heat oil, add cumin seeds.',
+      'Add onions, cook till golden.',
+      'Add tomatoes, turmeric, salt.',
+      'Mix cooked dal with vegetables.',
+      'Serve hot dal over rice.'
+    ],
+    dietaryNeeds: ['vegetarian', 'gluten-free'],
+    tags: ['budget-friendly', 'easy'],
+    nutritionTags: ['protein', 'energy'],
+    parentTips: [
+      'Add ghee on top for extra nutrition',
+      'Can be made in pressure cooker for faster cooking',
+      'Perfect comfort food for sick days'
+    ],
+    videoUrl: 'https://youtube.com/watch?v=dal-chawal-recipe'
+  },
+  {
+    id: 'roti-sabzi',
+    title: 'Simple Roti with Aloo Sabzi',
+    image: 'src/assets/images/roti-sabzi.jpg',
+    mealType: 'dinner',
+    ageGroups: ['4-6', '7-10'],
+    prepTime: '10',
+    cookTime: '15',
+    difficulty: 'easy',
+    servings: 4,
+    ingredients: [
+      '2 cups wheat flour',
+      '3 medium potatoes',
+      '1 onion',
+      '2 tomatoes',
+      '1 tsp turmeric',
+      '1 tsp salt',
+      '2 tbsp oil',
+      'Water as needed'
+    ],
+    steps: [
+      'Mix flour with water to make soft dough.',
+      'Boil and cube potatoes.',
+      'Heat oil, add chopped onions.',
+      'Add tomatoes, cook till soft.',
+      'Add potatoes, turmeric, salt.',
+      'Cook for 5 minutes.',
+      'Roll and cook rotis on tawa.',
+      'Serve hot roti with sabzi.'
+    ],
+    dietaryNeeds: ['vegetarian', 'dairy-free'],
+    tags: ['budget-friendly', 'filling'],
+    nutritionTags: ['energy', 'fiber'],
+    parentTips: [
+      'Let kids help roll small rotis',
+      'Can add green vegetables for nutrition',
+      'Make extra roti for next day breakfast'
+    ],
+    videoUrl: 'https://youtube.com/watch?v=roti-making-easy'
+  },
+  {
+    id: 'poha',
+    title: 'Simple Poha',
+    image: 'src/assets/images/poha.jpg',
     mealType: 'breakfast',
-    ageGroups: ['1-3', '4-6'],
+    ageGroups: ['4-6', '7-10'],
     prepTime: '5',
     cookTime: '10',
     difficulty: 'easy',
-    servings: 1,
+    servings: 3,
     ingredients: [
-      '2 eggs, beaten',
-      '1 tbsp milk',
-      '¼ cup finely diced bell pepper',
-      '¼ cup finely diced spinach',
-      '1 tbsp grated cheese',
-      'Pinch of salt (optional)'
+      '2 cups poha (flattened rice)',
+      '1 onion, chopped',
+      '1 potato, diced small',
+      '1 tsp mustard seeds',
+      '1 tsp turmeric',
+      'Salt to taste',
+      '2 tbsp oil',
+      'Fresh coriander leaves'
     ],
     steps: [
-      'Whisk eggs and milk in a bowl.',
-      'Heat a small non-stick pan over medium-low heat.',
-      'Add the diced vegetables and cook for 1 minute.',
-      'Pour in the egg mixture and cook until mostly set.',
-      'Sprinkle cheese on top and fold the omelette in half.',
-      'Cook for 1 more minute until cheese melts.',
-      'Cut into bite-sized pieces for toddlers.'
+      'Wash poha gently, drain water.',
+      'Heat oil, add mustard seeds.',
+      'Add onions and potato pieces.',
+      'Cook till potato is soft.',
+      'Add turmeric and salt.',
+      'Add washed poha, mix gently.',
+      'Cook for 2-3 minutes.',
+      'Garnish with coriander.'
     ],
-    dietaryNeeds: ['gluten-free', 'nut-free'],
-    tags: ['picky-eater'],
-    nutritionTags: ['protein', 'immunity'],
+    dietaryNeeds: ['vegetarian', 'gluten-free'],
+    tags: ['budget-friendly', 'quick'],
+    nutritionTags: ['energy', 'light'],
     parentTips: [
-      'Let your toddler help mix the eggs!',
-      'You can substitute any vegetables your child enjoys.',
-      'Make ahead and refrigerate for up to 2 days.'
-    ]
+      'Perfect breakfast for busy mornings',
+      'Can add peanuts for extra crunch',
+      'Squeeze lemon before serving'
+    ],
+    videoUrl: 'https://youtube.com/watch?v=poha-recipe-easy'
   },
   {
-    id: 'rainbow-pancakes',
-    title: 'Rainbow Pancakes',
-    image: '/placeholder.svg',
-    mealType: 'breakfast',
-    ageGroups: ['4-6', '7-10'],
-    prepTime: '15',
-    cookTime: '15',
-    difficulty: 'medium',
-    servings: 4,
-    ingredients: [
-      '1 cup all-purpose flour',
-      '2 tbsp sugar',
-      '1 tsp baking powder',
-      '¼ tsp salt',
-      '1 egg',
-      '¾ cup milk',
-      '2 tbsp melted butter',
-      'Food coloring (red, orange, yellow, green, blue, purple)',
-      'Fresh fruit for topping'
-    ],
-    steps: [
-      'Mix dry ingredients in a bowl.',
-      'In another bowl, whisk egg, milk, and melted butter.',
-      'Combine wet and dry ingredients to form a batter.',
-      'Divide the batter into 6 small bowls.',
-      'Add a drop of food coloring to each bowl and mix.',
-      'Heat a non-stick pan over medium heat.',
-      'Pour small amounts of each colored batter to make pancakes.',
-      'Flip when bubbles form on top.',
-      'Serve stacked with fruit between layers.'
-    ],
-    dietaryNeeds: ['nut-free'],
-    tags: ['picky-eater'],
-    nutritionTags: ['energy', 'fiber'],
-    parentTips: [
-      'Let kids choose which color pancake they want next!',
-      'Use natural food coloring made from fruits and vegetables if preferred.',
-      'These freeze well for busy mornings.'
-    ]
-  },
-  {
-    id: 'breakfast-burrito',
-    title: 'Breakfast Burrito',
-    image: '/placeholder.svg',
-    mealType: 'breakfast',
-    ageGroups: ['7-10'],
-    prepTime: '10',
-    cookTime: '10',
-    difficulty: 'easy',
-    servings: 1,
-    ingredients: [
-      'Whole wheat tortilla',
-      '2 eggs, scrambled',
-      '¼ cup black beans, rinsed',
-      '¼ cup grated cheese',
-      '2 tbsp salsa',
-      'Diced avocado',
-      'Handful of spinach'
-    ],
-    steps: [
-      'Scramble eggs in a pan until mostly cooked.',
-      'Add black beans and warm through.',
-      'Place tortilla on a plate and add the egg mixture in the center.',
-      'Top with cheese, spinach, salsa, and avocado.',
-      'Fold in the sides and roll up tightly.',
-      'Optional: Place back in pan to seal the edges.',
-      'Cut in half before serving.'
-    ],
-    dietaryNeeds: ['nut-free'],
-    tags: ['lunchbox', 'freezer-friendly'],
-    nutritionTags: ['protein', 'energy'],
-    parentTips: [
-      'Prep ingredients the night before for a quick morning assembly.',
-      'Let kids assemble their own burrito with their favorite toppings.',
-      'Wrap in foil for an on-the-go breakfast.'
-    ]
-  },
-  {
-    id: 'veggie-pita-pockets',
-    title: 'Veggie Pita Pockets',
-    image: '/placeholder.svg',
+    id: 'rajma-chawal',
+    title: 'Rajma Chawal',
+    image: 'src/assets/images/rajma-chawal.jpg',
     mealType: 'lunch',
     ageGroups: ['4-6', '7-10'],
     prepTime: '10',
-    cookTime: '0',
-    difficulty: 'easy',
-    servings: 2,
-    ingredients: [
-      'Whole wheat pita pockets',
-      'Hummus',
-      'Grated carrots',
-      'Cucumber slices',
-      'Cherry tomatoes, halved',
-      'Shredded lettuce',
-      'Optional: diced avocado'
-    ],
-    steps: [
-      'Cut pita pockets in half to create two pouches.',
-      'Spread hummus inside each pita half.',
-      'Fill with vegetables and avocado if using.',
-      'Serve immediately or wrap well for lunchboxes.'
-    ],
-    dietaryNeeds: ['vegetarian', 'dairy-free', 'nut-free'],
-    tags: ['no-cook', 'lunchbox', 'picky-eater'],
-    nutritionTags: ['fiber'],
-    parentTips: [
-      'Let kids choose their fillings from a selection of prepared veggies.',
-      'For picky eaters, start with just one or two veggies they already enjoy.',
-      'Add a protein like falafel or grilled chicken for a more substantial meal.'
-    ]
-  },
-  {
-    id: 'apple-sandwich',
-    title: 'Apple Sandwich Stackers',
-    image: '/placeholder.svg',
-    mealType: 'snack',
-    ageGroups: ['1-3', '4-6', '7-10'],
-    prepTime: '5',
-    cookTime: '0',
-    difficulty: 'easy',
-    servings: 2,
-    ingredients: [
-      '1 apple, cored and sliced into rounds',
-      '2 tbsp nut or seed butter',
-      '1 tbsp granola',
-      'Sprinkle of cinnamon',
-      'Optional: raisins, mini chocolate chips'
-    ],
-    steps: [
-      'Slice apple into rounds about 1/4 inch thick.',
-      'Spread nut/seed butter on half of the apple slices.',
-      'Sprinkle with granola and cinnamon.',
-      'Add optional toppings if desired.',
-      'Top with remaining apple slices to create sandwiches.'
-    ],
-    dietaryNeeds: ['gluten-free', 'vegetarian', 'dairy-free'],
-    tags: ['no-cook', 'picky-eater'],
-    nutritionTags: ['fiber', 'energy'],
-    parentTips: [
-      'Use sunflower seed butter for school lunch boxes with nut restrictions.',
-      'To prevent browning, brush apple slices with lemon juice.',
-      'Let children assemble their own apple sandwiches!'
-    ]
-  },
-  {
-    id: 'chicken-veggie-pasta',
-    title: 'One-Pot Chicken & Veggie Pasta',
-    image: '/placeholder.svg',
-    mealType: 'dinner',
-    ageGroups: ['1-3', '4-6', '7-10'],
-    prepTime: '10',
-    cookTime: '20',
+    cookTime: '25',
     difficulty: 'medium',
     servings: 4,
     ingredients: [
-      '2 cups whole wheat pasta (small shapes work best)',
-      '1 cup diced cooked chicken',
-      '1 cup mixed vegetables (peas, carrots, broccoli)',
-      '2 tbsp olive oil',
-      '1 small onion, diced finely',
-      '1 garlic clove, minced',
-      '2 cups low-sodium chicken broth',
-      '1/2 cup grated parmesan cheese',
-      'Salt and pepper to taste'
+      '1 cup rajma (kidney beans), soaked overnight',
+      '1 cup rice',
+      '1 onion, chopped',
+      '2 tomatoes, chopped',
+      '1 tsp garam masala',
+      '1 tsp turmeric',
+      'Salt to taste',
+      '2 tbsp oil'
     ],
     steps: [
-      'Heat olive oil in a large pot over medium heat.',
-      'Sauté onion until translucent, about 3 minutes.',
-      'Add garlic and cook for 30 seconds until fragrant.',
-      'Add pasta, chicken, vegetables, and broth.',
-      'Bring to a boil, then reduce heat and simmer covered for about 10-12 minutes until pasta is tender.',
-      'Stir in parmesan cheese until melted.',
-      'Season lightly with salt and pepper if needed.'
+      'Pressure cook soaked rajma for 4-5 whistles.',
+      'Cook rice separately.',
+      'Heat oil, add onions till golden.',
+      'Add tomatoes, cook till soft.',
+      'Add garam masala, turmeric.',
+      'Add cooked rajma with water.',
+      'Simmer for 10 minutes.',
+      'Serve with rice.'
     ],
-    dietaryNeeds: ['nut-free'],
-    tags: ['freezer-friendly'],
-    nutritionTags: ['protein', 'energy'],
+    dietaryNeeds: ['vegetarian', 'protein-rich'],
+    tags: ['budget-friendly', 'filling'],
+    nutritionTags: ['protein', 'iron'],
     parentTips: [
-      'Use leftover rotisserie chicken for a quicker prep time.',
-      'Frozen mixed vegetables work great in this recipe.',
-      'For picky eaters, choose pasta shapes they enjoy.'
-    ]
+      'Soak rajma overnight for easier cooking',
+      'Can be made in larger quantity and stored',
+      'Rich source of protein for growing kids'
+    ],
+    videoUrl: 'https://youtube.com/watch?v=rajma-masala-recipe'
   },
   {
-    id: 'banana-oat-cookies',
-    title: '3-Ingredient Banana Oat Cookies',
-    image: '/placeholder.svg',
-    mealType: 'dessert',
-    ageGroups: ['1-3', '4-6', '7-10'],
-    prepTime: '5',
-    cookTime: '15',
-    difficulty: 'easy',
-    servings: 12,
-    ingredients: [
-      '2 ripe bananas, mashed',
-      '1 cup rolled oats',
-      '1/4 cup mini chocolate chips or raisins',
-      'Optional: 1/2 tsp cinnamon or vanilla extract'
-    ],
-    steps: [
-      'Preheat oven to 350°F (175°C).',
-      'Mash bananas in a bowl.',
-      'Stir in oats and chocolate chips or raisins.',
-      'Add optional flavorings if desired.',
-      'Drop spoonfuls of mixture onto a lined baking sheet.',
-      'Flatten slightly with the back of a spoon.',
-      'Bake for 12-15 minutes until golden.',
-      'Allow to cool before serving.'
-    ],
-    dietaryNeeds: ['vegetarian', 'dairy-free', 'nut-free'],
-    tags: ['picky-eater', 'freezer-friendly'],
-    nutritionTags: ['fiber', 'energy'],
-    parentTips: [
-      'These make great breakfast cookies too!',
-      'Store in an airtight container for up to 3 days.',
-      'Let kids mash the bananas and mix the ingredients.'
-    ]
-  },
-  {
-    id: 'toddler-smoothie',
-    title: 'Hidden Veggie Smoothie',
-    image: '/placeholder.svg',
+    id: 'chana-chaat',
+    title: 'Healthy Chana Chaat',
+    image: 'src/assets/images/chana-chaat.jpg',
     mealType: 'snack',
-    ageGroups: ['1-3', '4-6'],
+    ageGroups: ['4-6', '7-10'],
     prepTime: '5',
     cookTime: '0',
     difficulty: 'easy',
     servings: 2,
     ingredients: [
-      '1 cup frozen berries',
-      '1 banana',
-      '1/2 cup spinach or kale (mild tasting)',
-      '1 cup milk (dairy or plant-based)',
-      '1 tbsp ground flaxseed (optional)',
-      '1 tsp honey (for kids over 1 year)'
+      '1 cup boiled chana (chickpeas)',
+      '1 cucumber, diced',
+      '1 tomato, diced',
+      '1 onion, chopped',
+      '1 tsp chaat masala',
+      'Lemon juice',
+      'Salt to taste',
+      'Fresh mint leaves'
     ],
     steps: [
-      'Add all ingredients to a blender.',
-      'Blend until smooth and creamy.',
-      'Add more liquid if needed for desired consistency.',
-      'Serve immediately.'
+      'Mix boiled chana with diced vegetables.',
+      'Add chaat masala and salt.',
+      'Squeeze lemon juice over mixture.',
+      'Garnish with mint leaves.',
+      'Mix well and serve immediately.'
     ],
-    dietaryNeeds: ['gluten-free'],
-    tags: ['no-cook', 'picky-eater'],
-    nutritionTags: ['fiber', 'immunity'],
+    dietaryNeeds: ['vegetarian', 'protein-rich', 'gluten-free'],
+    tags: ['no-cook', 'healthy', 'filling'],
+    nutritionTags: ['protein', 'fiber'],
     parentTips: [
-      'Use frozen fruits instead of ice for a creamier texture.',
-      'Serve in a fun cup with a colorful straw to increase appeal.',
-      'Let kids pick one ingredient to add for a sense of ownership.'
-    ]
+      'Can use canned chickpeas for quick preparation',
+      'Add grated carrot for extra crunch',
+      'Perfect evening snack for hungry kids'
+    ],
+    videoUrl: 'https://youtube.com/watch?v=chana-chaat-healthy'
+  },
+  {
+    id: 'khichdi',
+    title: 'Nutritious Khichdi',
+    image: 'src/assets/images/khichdi.jpg',
+    mealType: 'dinner',
+    ageGroups: ['1-3', '4-6', '7-10'],
+    prepTime: '5',
+    cookTime: '20',
+    difficulty: 'easy',
+    servings: 4,
+    ingredients: [
+      '1 cup rice',
+      '1/2 cup moong dal',
+      '1 tsp turmeric',
+      '1 tsp cumin seeds',
+      '2 tbsp ghee',
+      'Salt to taste',
+      '3 cups water',
+      'Mixed vegetables (optional)'
+    ],
+    steps: [
+      'Wash rice and dal together.',
+      'Heat ghee, add cumin seeds.',
+      'Add rice and dal, stir for 1 minute.',
+      'Add water, turmeric, salt.',
+      'Add vegetables if using.',
+      'Pressure cook for 3-4 whistles.',
+      'Let pressure release naturally.',
+      'Mix and serve hot with pickle.'
+    ],
+    dietaryNeeds: ['vegetarian', 'gluten-free', 'easy-digest'],
+    tags: ['comfort-food', 'one-pot', 'sick-day'],
+    nutritionTags: ['protein', 'easy-digest'],
+    parentTips: [
+      'Perfect food when kids are unwell',
+      'Can add different vegetables each time',
+      'Very gentle on stomach'
+    ],
+    videoUrl: 'https://youtube.com/watch?v=khichdi-recipe-kids'
+  },
+  {
+    id: 'rava-laddu',
+    title: 'Simple Rava Laddu',
+    image: 'src/assets/images/rava-laddu.jpg',
+    mealType: 'dessert',
+    ageGroups: ['4-6', '7-10'],
+    prepTime: '5',
+    cookTime: '10',
+    difficulty: 'easy',
+    servings: 10,
+    ingredients: [
+      '1 cup rava (semolina)',
+      '1/2 cup sugar powder',
+      '1/4 cup ghee',
+      '2 tbsp coconut powder',
+      '1/4 cup chopped almonds',
+      'Pinch of cardamom powder'
+    ],
+    steps: [
+      'Dry roast rava till light golden.',
+      'Let it cool completely.',
+      'Mix rava with sugar powder.',
+      'Add coconut, almonds, cardamom.',
+      'Warm ghee slightly.',
+      'Add ghee gradually to mixture.',
+      'Mix well and form small balls.',
+      'Store in airtight container.'
+    ],
+    dietaryNeeds: ['vegetarian'],
+    tags: ['festival-sweet', 'homemade'],
+    nutritionTags: ['energy', 'healthy-fat'],
+    parentTips: [
+      'Kids love to help shape the laddus',
+      'Can be made for special occasions',
+      'Healthier than store-bought sweets'
+    ],
+    videoUrl: 'https://youtube.com/watch?v=rava-laddu-easy'
+  },
+  {
+    id: 'banana-lassi',
+    title: 'Banana Lassi',
+    image: 'src/assets/images/banana-lassi.jpg',
+    mealType: 'snack',
+    ageGroups: ['1-3', '4-6', '7-10'],
+    prepTime: '3',
+    cookTime: '0',
+    difficulty: 'easy',
+    servings: 2,
+    ingredients: [
+      '2 ripe bananas',
+      '1 cup fresh curd/yogurt',
+      '2 tbsp sugar or jaggery',
+      '1/2 cup cold milk',
+      'Pinch of cardamom powder',
+      'Ice cubes (optional)'
+    ],
+    steps: [
+      'Peel and chop bananas.',
+      'Add all ingredients to blender.',
+      'Blend until smooth and frothy.',
+      'Add ice if you want it chilled.',
+      'Pour into glasses and serve immediately.'
+    ],
+    dietaryNeeds: ['vegetarian', 'protein-rich'],
+    tags: ['no-cook', 'refreshing', 'summer'],
+    nutritionTags: ['protein', 'calcium'],
+    parentTips: [
+      'Perfect summer drink for kids',
+      'Can use frozen banana for thicker consistency',
+      'Add honey instead of sugar for natural sweetness'
+    ],
+    videoUrl: 'https://youtube.com/watch?v=banana-lassi-kids'
   }
 ];

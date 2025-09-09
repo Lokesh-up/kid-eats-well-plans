@@ -32,6 +32,7 @@ const recipeData: Record<string, {
   steps: string[];
   nutritionTags: string[];
   parentTips: string[];
+  videoUrl?: string;
 }> = {
   'toddler-breakfast-1': {
     name: 'Mini Veggie Omelette',
@@ -194,6 +195,20 @@ const MealModal: React.FC<MealModalProps> = ({ mealId, onClose }) => {
                   target.src = fallbackImage;
                 }}
               />
+              
+              {recipe.videoUrl && (
+                <div className="mt-4">
+                  <h4 className="font-semibold mb-2 text-accent-foreground">Watch Cooking Video:</h4>
+                  <a 
+                    href={recipe.videoUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
+                  >
+                    📺 Watch Recipe Video
+                  </a>
+                </div>
+              )}
               {recipe.nutritionTags.length > 0 && (
                 <div className="mt-3">
                   <h4 className="font-medium mb-2">Nutrition Highlights</h4>
