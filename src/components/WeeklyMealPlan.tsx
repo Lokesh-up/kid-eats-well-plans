@@ -2,6 +2,8 @@ import React from 'react';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Shield, Apple, Egg, Zap } from 'lucide-react';
+import { getRecipesByAge } from '../data/recipesByAge';
+import { Recipe } from '../data/recipes';
 
 type MealType = {
   id: string;
@@ -33,138 +35,28 @@ type MealPlanProps = {
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const mealTypes = ['Breakfast', 'Morning Snack', 'Lunch', 'Afternoon Snack', 'Dinner'];
 
-// Mock data for meal plans
-const generateMealPlans = (ageGroup: string) => {
-  const mealsByAge: Record<string, MealType[]> = {
-    '1-3': [
-      {
-        id: 'toddler-breakfast-1',
-        name: 'Mini Veggie Omelette',
-        image: '/placeholder.svg',
-        tags: ['quick', 'protein-rich'],
-        nutritionTags: ['protein', 'immunity'],
-        dietary: { vegetarian: true, glutenFree: true, dairyFree: false, nutFree: true, pickyEaterFriendly: true }
-      },
-      {
-        id: 'toddler-snack-1',
-        name: 'Banana & Yogurt',
-        image: '/placeholder.svg',
-        tags: ['no-cook', 'finger-food'],
-        nutritionTags: ['energy', 'fiber'],
-        dietary: { vegetarian: true, glutenFree: true, dairyFree: false, nutFree: true, pickyEaterFriendly: true }
-      },
-      {
-        id: 'toddler-lunch-1',
-        name: 'Tiny Turkey Sandwiches',
-        image: '/placeholder.svg',
-        tags: ['protein-rich', 'lunchbox'],
-        nutritionTags: ['protein', 'energy'],
-        dietary: { vegetarian: false, glutenFree: false, dairyFree: true, nutFree: true, pickyEaterFriendly: true }
-      },
-      {
-        id: 'toddler-snack-2',
-        name: 'Apple Slices & Nut Butter',
-        image: '/placeholder.svg',
-        tags: ['no-cook', 'fiber-rich'],
-        nutritionTags: ['fiber', 'energy'],
-        dietary: { vegetarian: true, glutenFree: true, dairyFree: true, nutFree: false, pickyEaterFriendly: true }
-      },
-      {
-        id: 'toddler-dinner-1',
-        name: 'Mini Pasta & Hidden Veggie Sauce',
-        image: '/placeholder.svg',
-        tags: ['toddler-friendly', 'veggie-rich'],
-        nutritionTags: ['fiber', 'immunity'],
-        dietary: { vegetarian: true, glutenFree: false, dairyFree: false, nutFree: true, pickyEaterFriendly: true }
-      }
-    ],
-    '4-6': [
-      {
-        id: 'kids-breakfast-1',
-        name: 'Rainbow Pancakes',
-        image: '/placeholder.svg',
-        tags: ['fun', 'weekend'],
-        nutritionTags: ['energy', 'fiber'],
-        dietary: { vegetarian: true, glutenFree: false, dairyFree: false, nutFree: true, pickyEaterFriendly: true }
-      },
-      {
-        id: 'kids-snack-1',
-        name: 'Veggie Sticks & Hummus',
-        image: '/placeholder.svg',
-        tags: ['no-cook', 'protein-rich'],
-        nutritionTags: ['protein', 'fiber'],
-        dietary: { vegetarian: true, glutenFree: true, dairyFree: true, nutFree: true, pickyEaterFriendly: false }
-      },
-      {
-        id: 'kids-lunch-1',
-        name: 'Bento Box Lunch',
-        image: '/placeholder.svg',
-        tags: ['lunchbox', 'balanced'],
-        nutritionTags: ['protein', 'energy', 'fiber'],
-        dietary: { vegetarian: false, glutenFree: true, dairyFree: false, nutFree: true, pickyEaterFriendly: true }
-      },
-      {
-        id: 'kids-snack-2',
-        name: 'Fruit & Cheese Kabobs',
-        image: '/placeholder.svg',
-        tags: ['fun', 'calcium-rich'],
-        nutritionTags: ['immunity', 'energy'],
-        dietary: { vegetarian: true, glutenFree: true, dairyFree: false, nutFree: true, pickyEaterFriendly: true }
-      },
-      {
-        id: 'kids-dinner-1',
-        name: 'Build-Your-Own Tacos',
-        image: '/placeholder.svg',
-        tags: ['interactive', 'family-meal'],
-        nutritionTags: ['protein', 'fiber'],
-        dietary: { vegetarian: false, glutenFree: true, dairyFree: false, nutFree: true, pickyEaterFriendly: true }
-      }
-    ],
-    '7-10': [
-      {
-        id: 'big-kids-breakfast-1',
-        name: 'Breakfast Burrito',
-        image: '/placeholder.svg',
-        tags: ['protein-rich', 'grab-and-go'],
-        nutritionTags: ['protein', 'energy'],
-        dietary: { vegetarian: false, glutenFree: false, dairyFree: false, nutFree: true, pickyEaterFriendly: true }
-      },
-      {
-        id: 'big-kids-snack-1',
-        name: 'Trail Mix',
-        image: '/placeholder.svg',
-        tags: ['no-cook', 'energy-boost'],
-        nutritionTags: ['energy', 'protein'],
-        dietary: { vegetarian: true, glutenFree: true, dairyFree: true, nutFree: false, pickyEaterFriendly: true }
-      },
-      {
-        id: 'big-kids-lunch-1',
-        name: 'Hearty Sandwich & Soup',
-        image: '/placeholder.svg',
-        tags: ['lunch', 'comfort-food'],
-        nutritionTags: ['protein', 'fiber', 'immunity'],
-        dietary: { vegetarian: false, glutenFree: false, dairyFree: false, nutFree: true, pickyEaterFriendly: true }
-      },
-      {
-        id: 'big-kids-snack-2',
-        name: 'Yogurt Parfait',
-        image: '/placeholder.svg',
-        tags: ['protein-rich', 'sweet-treat'],
-        nutritionTags: ['protein', 'immunity'],
-        dietary: { vegetarian: true, glutenFree: true, dairyFree: false, nutFree: true, pickyEaterFriendly: true }
-      },
-      {
-        id: 'big-kids-dinner-1',
-        name: 'Baked Fish Fingers & Sweet Potato Fries',
-        image: '/placeholder.svg',
-        tags: ['kid-favorite', 'healthy-twist'],
-        nutritionTags: ['protein', 'immunity', 'fiber'],
-        dietary: { vegetarian: false, glutenFree: true, dairyFree: true, nutFree: true, pickyEaterFriendly: true }
-      }
-    ]
+// Convert Recipe to MealType for the meal plan
+const convertRecipeToMeal = (recipe: Recipe): MealType => {
+  return {
+    id: recipe.id,
+    name: recipe.title,
+    image: recipe.image,
+    tags: recipe.tags,
+    nutritionTags: recipe.nutritionTags as ('protein' | 'fiber' | 'immunity' | 'energy')[],
+    dietary: {
+      vegetarian: recipe.dietaryNeeds.includes('vegetarian'),
+      glutenFree: recipe.dietaryNeeds.includes('gluten-free'),
+      dairyFree: recipe.dietaryNeeds.includes('dairy-free'),
+      nutFree: recipe.dietaryNeeds.includes('nut-free'),
+      pickyEaterFriendly: recipe.tags.includes('picky-eater-friendly')
+    }
   };
+};
 
-  return mealsByAge[ageGroup] || [];
+// Get meals for specific age group and meal type
+const getMealsForAgeGroup = (ageGroup: string): MealType[] => {
+  const recipes = getRecipesByAge(ageGroup);
+  return recipes.map(convertRecipeToMeal);
 };
 
 // Helper to filter meals based on dietary preferences
@@ -201,7 +93,7 @@ const NutritionIcon = ({ type }: { type: string }) => {
 };
 
 const WeeklyMealPlan: React.FC<MealPlanProps> = ({ ageGroup, dietaryFilters, onMealClick }) => {
-  const allMeals = generateMealPlans(ageGroup);
+  const allMeals = getMealsForAgeGroup(ageGroup);
   const filteredMeals = filterMealsByDietary(allMeals, dietaryFilters);
   
   // Function to get a meal for a specific cell
