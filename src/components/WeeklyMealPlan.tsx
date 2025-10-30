@@ -96,12 +96,26 @@ const WeeklyMealPlan: React.FC<MealPlanProps> = ({ ageGroup, dietaryFilters, onM
   const allMeals = getMealsForAgeGroup(ageGroup);
   const filteredMeals = filterMealsByDietary(allMeals, dietaryFilters);
   
-  // Function to get a meal for a specific cell
+  // Organize meals by type for better distribution
+  const mealsByType = {
+    breakfast: filteredMeals.filter(m => m.tags.includes('breakfast')),
+    'morning-snack': filteredMeals.filter(m => m.tags.includes('morning-snack')),
+    lunch: filteredMeals.filter(m => m.tags.includes('lunch')),
+    'evening-snack': filteredMeals.filter(m => m.tags.includes('evening-snack')),
+    dinner: filteredMeals.filter(m => m.tags.includes('dinner'))
+  };
+  
+  // Function to get a meal for a specific cell with better variety
   const getMealForCell = (dayIndex: number, mealTypeIndex: number) => {
-    // This is a simple pattern to distribute our mock meals across the week
-    // In a real app, you'd fetch the actual meal plan for each day
-    const mealIndex = (dayIndex + mealTypeIndex) % filteredMeals.length;
-    return filteredMeals[mealIndex];
+    const mealTypeMap = ['breakfast', 'morning-snack', 'lunch', 'evening-snack', 'dinner'];
+    const mealType = mealTypeMap[mealTypeIndex] as keyof typeof mealsByType;
+    const mealsOfType = mealsByType[mealType];
+    
+    if (!mealsOfType || mealsOfType.length === 0) return null;
+    
+    // Use a better distribution algorithm to avoid repetition
+    const mealIndex = (dayIndex * 7 + mealTypeIndex * 3) % mealsOfType.length;
+    return mealsOfType[mealIndex];
   };
 
   return (

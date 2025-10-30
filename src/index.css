@@ -91,3 +91,54 @@
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
+
+/* Print Styles */
+@media print {
+  @page {
+    size: landscape;
+    margin: 1cm;
+  }
+
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Hide navigation and non-essential elements */
+  nav, footer, .no-print {
+    display: none !important;
+  }
+
+  /* Hide filter toolbar and action buttons when printing */
+  .no-print-filter {
+    display: none !important;
+  }
+
+  /* Ensure table fits on page */
+  table {
+    page-break-inside: auto;
+    font-size: 10pt;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  /* Ensure content is visible */
+  * {
+    background: white !important;
+    color: black !important;
+  }
+
+  th {
+    background: #f0f0f0 !important;
+    color: black !important;
+  }
+
+  /* Add page title */
+  .print-header {
+    display: block !important;
+    margin-bottom: 1rem;
+  }
+}
