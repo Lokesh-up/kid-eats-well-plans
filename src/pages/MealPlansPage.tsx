@@ -5,7 +5,7 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent } from "@/components/ui/card";
-import { Download, Printer, Bookmark, Shield, Apple, Egg, Zap } from 'lucide-react';
+import { Download } from 'lucide-react';
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 import WeeklyMealPlan from '@/components/WeeklyMealPlan';
 import MealModal from '@/components/MealModal';
@@ -23,10 +23,6 @@ const MealPlansPage = () => {
   const [openRecipe, setOpenRecipe] = useState<string | null>(null);
 
   const handleDownloadPDF = () => {
-    window.print();
-  };
-
-  const handlePrint = () => {
     window.print();
   };
 
@@ -110,20 +106,11 @@ const MealPlansPage = () => {
             </div>
           </div>
           
-          <div className="flex items-center gap-2">
-            <Button variant="outline" className="gap-2" onClick={handleDownloadPDF}>
-              <Download size={18} />
-              Download PDF
-            </Button>
-            <Button variant="outline" className="gap-2" onClick={handlePrint}>
-              <Printer size={18} />
-              Print List
-            </Button>
-            <Button variant="outline" className="gap-2">
-              <Bookmark size={18} />
-              Save Plan
-            </Button>
-          </div>
+          
+          <Button variant="outline" className="gap-2" onClick={handleDownloadPDF}>
+            <Download size={18} />
+            Download PDF
+          </Button>
         </div>
         
         {/* Age-specific Meal Plans */}
