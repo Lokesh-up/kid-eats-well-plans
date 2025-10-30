@@ -96,13 +96,28 @@ const WeeklyMealPlan: React.FC<MealPlanProps> = ({ ageGroup, dietaryFilters, onM
   const allMeals = getMealsForAgeGroup(ageGroup);
   const filteredMeals = filterMealsByDietary(allMeals, dietaryFilters);
   
-  // Organize meals by type for better distribution
+  // Organize meals by meal type for better distribution
   const mealsByType = {
-    breakfast: filteredMeals.filter(m => m.tags.includes('breakfast')),
-    'morning-snack': filteredMeals.filter(m => m.tags.includes('morning-snack')),
-    lunch: filteredMeals.filter(m => m.tags.includes('lunch')),
-    'evening-snack': filteredMeals.filter(m => m.tags.includes('evening-snack')),
-    dinner: filteredMeals.filter(m => m.tags.includes('dinner'))
+    breakfast: filteredMeals.filter(m => {
+      const recipe = getRecipesByAge(ageGroup).find(r => r.id === m.id);
+      return recipe?.mealType === 'breakfast';
+    }),
+    'morning-snack': filteredMeals.filter(m => {
+      const recipe = getRecipesByAge(ageGroup).find(r => r.id === m.id);
+      return recipe?.mealType === 'morning-snack';
+    }),
+    lunch: filteredMeals.filter(m => {
+      const recipe = getRecipesByAge(ageGroup).find(r => r.id === m.id);
+      return recipe?.mealType === 'lunch';
+    }),
+    'evening-snack': filteredMeals.filter(m => {
+      const recipe = getRecipesByAge(ageGroup).find(r => r.id === m.id);
+      return recipe?.mealType === 'evening-snack';
+    }),
+    dinner: filteredMeals.filter(m => {
+      const recipe = getRecipesByAge(ageGroup).find(r => r.id === m.id);
+      return recipe?.mealType === 'dinner';
+    })
   };
   
   // Function to get a meal for a specific cell with better variety
