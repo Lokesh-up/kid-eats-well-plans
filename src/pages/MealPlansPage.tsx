@@ -44,7 +44,7 @@ const MealPlansPage = () => {
           <TabsList className="grid grid-cols-3 w-full max-w-xl">
             <TabsTrigger value="1-3" className="text-lg py-3">Ages 1–3 (Toddlers)</TabsTrigger>
             <TabsTrigger value="4-6" className="text-lg py-3">Ages 4–6</TabsTrigger>
-            <TabsTrigger value="7-10" className="text-lg py-3">Ages 7–10</TabsTrigger>
+            <TabsTrigger value="7-9" className="text-lg py-3">Ages 7–9</TabsTrigger>
           </TabsList>
         </div>
 
@@ -114,8 +114,8 @@ const MealPlansPage = () => {
         <TabsContent value="4-6">
           <WeeklyMealPlan ageGroup="4-6" dietaryFilters={dietaryFilters} onMealClick={setOpenRecipe} />
         </TabsContent>
-        <TabsContent value="7-10">
-          <WeeklyMealPlan ageGroup="7-10" dietaryFilters={dietaryFilters} onMealClick={setOpenRecipe} />
+        <TabsContent value="7-9">
+          <WeeklyMealPlan ageGroup="7-9" dietaryFilters={dietaryFilters} onMealClick={setOpenRecipe} />
         </TabsContent>
       </Tabs>
 
