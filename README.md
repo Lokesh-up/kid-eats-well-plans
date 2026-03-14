@@ -1,73 +1,113 @@
-# Welcome to your Lovable project
+# Kid Eats Well 🍽️
 
-## Project info
+**Kid Eats Well** is a web application designed to help parents discover healthy, nutritious, and kid-friendly meal ideas. The platform provides simple recipes, balanced meal suggestions, and useful tips to encourage healthy eating habits for children.
 
-**URL**: https://lovable.dev/projects/d9fddbd0-d0c1-4916-9565-adbdd23ff36e
+---
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+* 🥗 Healthy recipes for kids
+* ⏱ Quick and easy meal preparation ideas
+* 🍱 Meal plan suggestions
+* 👨‍👩‍👧 Helpful nutrition tips for parents
+* 📱 Responsive design for all devices
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d9fddbd0-d0c1-4916-9565-adbdd23ff36e) and start prompting.
+## 🛠 Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+* **React**
+* **TypeScript**
+* **Vite**
+* **Tailwind CSS**
+* **shadcn-ui**
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📸 Screenshots
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Home Page
 
-Follow these steps:
+![Home](./screenshots/Home.png)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Recipes Section
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+![Recipes](./screenshots/Recipes.png)
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Meal Plan Page
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+![Meal Plan](./screenshots/Meal%20Plan.png)
+
+### About Page
+
+![About](./screenshots/About.png)
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Lokesh-up/kid-eats-well-plans.git
+```
+
+Navigate to the project folder:
+
+```bash
+cd kid-eats-well-plans
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open your browser and visit:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+http://localhost:8080
+```
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📁 Project Structure
 
-## What technologies are used for this project?
+```
+src
+ ├ components
+ ├ pages
+ ├ assets
+ │   └ images
+ ├ data
+ └ styles
+```
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🔮 Future Improvements
 
-## How can I deploy this project?
+* Recipe search functionality
+* Meal plan generator
+* Nutrition tracking
+* User favorites and saved recipes
 
-Simply open [Lovable](https://lovable.dev/projects/d9fddbd0-d0c1-4916-9565-adbdd23ff36e) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## 👨‍💻 Author
 
-Yes, you can!
+**Voruganti Lokesh**
+B.Tech – Information Technology
+VNR Vignana Jyothi Institute of Engineering and Technology
+Graduation Year: 2027
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+⭐ If you like this project, feel free to give it a star!
