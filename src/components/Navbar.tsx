@@ -39,7 +39,6 @@ const Navbar = () => {
             <Link to="/about" className="font-medium hover:text-primary transition-colors">
               About
             </Link>
-            <Button>Get Started</Button>
           </div>
           
           {/* Mobile Menu Button */}
@@ -92,7 +91,6 @@ const Navbar = () => {
               >
                 About
               </Link>
-              <Button className="w-full">Get Started</Button>
             </div>
           </div>
         )}
