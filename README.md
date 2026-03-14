@@ -2,7 +2,7 @@
 
 **Kid Eats Well** is a web application designed to help parents discover healthy, nutritious, and kid-friendly meal ideas. The platform provides simple recipes, balanced meal suggestions, and useful tips to encourage healthy eating habits for children.
 
----
+Live Demo: https://kid-eats-well-plans.vercel.app
 
 ## 🚀 Features
 
