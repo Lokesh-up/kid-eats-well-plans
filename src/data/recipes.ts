@@ -5,8 +5,9 @@ export interface Recipe {
   mealType: string;
   ageGroups: string[];
 
-  prepTime: number;
-  cookTime: number;
+  prepTime: number | string;
+  cookTime: number | string;
+
 
   difficulty: 'easy' | 'medium' | 'hard';
 
