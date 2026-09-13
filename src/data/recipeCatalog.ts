@@ -113,7 +113,7 @@ function normalize(raw: Recipe): CatalogRecipe {
 
   const goals: Goal[] = [];
   if (totalTime <= 20 || raw.tags.includes('quick') || raw.tags.includes('no-cook')) goals.push('quick');
-  if (!NOT_LUNCHBOX.test(raw.title) && (raw.slotHintLunchbox ?? true)) goals.push('lunchbox');
+  if (!NOT_LUNCHBOX.test(`${raw.title} ${raw.tags.join(' ')}`)) goals.push('lunchbox');
   if (!PRICEY.test(text) || raw.tags.includes('budget')) goals.push('budget');
   goals.push('variety');
 
